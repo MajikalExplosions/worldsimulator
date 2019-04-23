@@ -1,11 +1,12 @@
 
-package worldsimulator;
+package worldsimulator.entity;
 
 import java.util.Random;
 
 public class Race {
-    
+    /*
     private Entity[] entities;
+    private Entity nullEntity;
     private Random rnd;
     
     public Race(Random r) {
@@ -18,18 +19,24 @@ public class Race {
         
         entities = new Entity[rnd.nextInt(totalSquares / 2) + totalSquares / 4 * 3];//idk either okay
         
-        entities[0] = new Entity(rnd, map);
-        entities[0].setEmpty();
+        nullEntity = new Entity(rnd, map);
+        nullEntity.setEmpty();
         
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                map[i][j].setOwner(entities[0]);
+                map[i][j].setOwner(nullEntity);
             }
         }
         
-        for (int i = 1; i < entities.length; i++) {
+        for (int i = 0; i < entities.length; i++) {
             entities[i] = new Entity(rnd, map);
             entities[i].generate();
+            if (i == 10) System.out.println(entities[i].getLanguage().generateWord());
         }
     }
+    
+    public Entity[] getEntities() {
+        return entities;
+    }
+    */
 }

@@ -1,5 +1,5 @@
 
-package worldsimulator;
+package worldsimulator.entity;
 
 import java.util.Random;
 

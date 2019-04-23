@@ -1,40 +1,30 @@
 
 package worldsimulator;
 
+import worldsimulator.entity.Race;
+import worldsimulator.terrain.Terrain;
 import java.util.HashSet;
 import java.util.Random;
 
 public class World {
     
-    Terrain terrain;
-    Race humans;
+    public static final double COASTLINE_ALTITUDE = 0.6;
+    public static final double DESERT_BOUND = 0.1;
+    
+    public Terrain terrain;
+    public Race humans;
     
     private Random rnd;
     
     public World(Random r) {
         rnd = r;
-        terrain = new Terrain(rnd, 10);
-        /*
-        RUN TIMES:
-        0 - 7: Negligible
-        8: ~0.06GB; 2"; 257*257
-        9: ~0.09GB; 3"; 513*513
-        10: ~0.16GB; 4"; 1025*1025
-        11: ~0.38GB; 10"; 2049*2049
-        12: ~1.25GB; 24"; 4097*4097
-        13: ~3.85GB; 1'20"; 8193*8193
-        14: Don't even try.
-        */
-        humans = new Race(rnd);
+        terrain = new Terrain(rnd);
+        humans = new Race();
     }
     
     public boolean generate() {
-        System.out.println("[A] Generating World...");
-        terrain.generate();
-        System.out.println("[A] World Generated.\n[A] Generating Entities...");
-        humans.generate(terrain.getMap());
-        System.out.println("[A] Entities Generated.");
         
+        /*
         System.out.println("[C] Drawing PNG with Factions...");
         CustomImage ci5 = new CustomImage((int) Math.pow(2, terrain.getSide()) + 1, (int)Math.pow(2, terrain.getSide()) + 1);
         for (int i = 0; i < terrain.getMap().length; i++) {
@@ -45,8 +35,23 @@ public class World {
             }
         }
         ci5.writeToFile("factions");
-        
-        System.out.println("[0] Planet Generated.");
+        */
+        System.out.println("Planet Generated.");
         return true;
     }
+    
+    public void simulate(int n) {
+        //while (n-- > 0) simulateYear();
+    }
+    /*
+    private void simulateYear() {
+        Entity[] entities = humans.getEntities();
+        
+        int index = rnd.nextInt(entities.length);
+        
+        for(int i = 0; i < entities.length; i++) {
+            entities[(i + index) % entities.length].update();
+        }
+    }
+    */
 }

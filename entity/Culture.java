@@ -1,16 +1,12 @@
 
-package worldsimulator;
+package worldsimulator.entity;
 
 import java.util.Random;
-
-public class Entity {
-    private int id;
+import worldsimulator.World;
+/*
+public class Culture {
     private Language dialect;
-    private Random rnd;
     private String name;
-    private TerrainCell[][] map;
-    private int x, y;
-    public static int ids = 0;
     
     public Entity(Random r, TerrainCell[][] m) {
         rnd = r;
@@ -30,7 +26,7 @@ public class Entity {
         x = rnd.nextInt(map.length);
         y = rnd.nextInt(map[0].length);
         
-        while(map[x][y].getAltitude() < 0.6 || map[x][y].getRainfall() < 0.1 || ! (map[x][y].getOwner().isEmpty())) {
+        while(map[x][y].getAltitude() < World.COASTLINE_ALTITUDE || map[x][y].getRainfall() < World.DESERT_BOUND || ! (map[x][y].getOwner().isEmpty())) {
             x = rnd.nextInt(map.length);
             y = rnd.nextInt(map[0].length);
         }
@@ -62,4 +58,9 @@ public class Entity {
     public Language getLanguage() {
         return dialect;
     }
+    
+    public void update() {
+        
+    }
 }
+*/
